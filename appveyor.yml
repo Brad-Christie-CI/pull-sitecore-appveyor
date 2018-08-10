@@ -12,7 +12,7 @@ install:
   - cmd: docker version
 
 before_build:
-  - ps: .\Download.ps1 -SitecoreUsername $env:SC_USERNAME -SitecorePassword $env:SC_PASSWORD -Destination .\Files
+  - ps: .\Get-SitecorePackages.ps1 -SitecoreUsername $env:SC_USERNAME -SitecorePassword $env:SC_PASSWORD -Destination .\Files
 
 build_script:
   - ps: .\Build.ps1 -InstallSourcePath .\Files
