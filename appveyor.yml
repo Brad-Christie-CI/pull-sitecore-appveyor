@@ -7,6 +7,9 @@ environment:
   SC_PASSWORD:
     secure: rBZnM8JQZGVmMu5zdYP5Qw==
 
+cache:
+  - .\Files -> .\Get-SitecorePackages.ps1
+
 install:
   - ps: Write-Host Server version $(gp 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').BuildLabEx
   - cmd: docker version
