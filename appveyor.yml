@@ -1,0 +1,21 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+environment:
+  SC_USERNAME:
+    secure: 9qq8LNPCEx/hIK+8JrHPz2G6Ezj/dpcJkZybIgLoPtg=
+  SC_PASSWORD:
+    secure: rBZnM8JQZGVmMu5zdYP5Qw==
+
+install:
+  - ps: Write-Host Server version $(gp 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').BuildLabEx
+  - cmd: docker version
+
+before_build:
+  - ps: .\Download.ps1 -SitecoreUsername $env:SC_USERNAME -SitecorePassword $env:SC_PASSWORD -Destination .\Files
+
+build_script:
+  - ps: .\Build.ps1 -InstallSourcePath .\Files
+
+after_build:
+  - cmd: docker images
