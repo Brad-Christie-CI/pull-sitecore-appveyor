@@ -7,6 +7,14 @@ environment:
   SC_PASSWORD:
     secure: rBZnM8JQZGVmMu5zdYP5Qw==
 
+only_commits:
+  files:
+    - appveyor.yml
+    - *.ps1
+    - sitecore/**/.dockerignore
+    - sitecore/**/Dockerfile
+    - sitecore/**/build.json
+
 cache:
   - .\Files -> .\Get-SitecorePackages.ps1
 
