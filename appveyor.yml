@@ -10,7 +10,7 @@ environment:
 only_commits:
   files:
     - appveyor.yml
-    - *.ps1
+    - '*.ps1'
     - sitecore/**/.dockerignore
     - sitecore/**/Dockerfile
     - sitecore/**/build.json
